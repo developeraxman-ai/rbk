@@ -21,6 +21,13 @@ export const metadata = {
   description:
     "RBK Events is a premium event-led visual brand by Raghavendra B Kolar, bringing cinematic atmosphere to live experiences, weddings, celebrity appearances, and brand moments.",
   metadataBase: new URL("https://rbk-events.vercel.app"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+  },
 };
 
 export const viewport = {

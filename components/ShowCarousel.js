@@ -28,8 +28,8 @@ export default function ShowCarousel({ items }) {
   const activeItem = items[activeIndex];
 
   return (
-    <div className="space-y-4 sm:space-y-5">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10 bg-black sm:aspect-[16/10]">
+    <div className="space-y-3 sm:space-y-5">
+      <div className="relative h-[250px] overflow-hidden rounded-xl border border-white/10 bg-black sm:aspect-[16/10] sm:h-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeItem.title}
@@ -43,21 +43,28 @@ export default function ShowCarousel({ items }) {
               src={activeItem.image}
               alt={activeItem.title}
               fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 100vw, 45vw"
+              className="z-0 scale-110 object-cover object-center opacity-35 blur-xl"
+            />
+            <div className="absolute inset-0 z-10 bg-black/35" />
+            <Image
+              src={activeItem.image}
+              alt={activeItem.title}
+              fill
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 100vw, 45vw"
               className={cn(
-                activeItem.fit === "contain"
-                  ? "object-contain p-4 sm:p-6"
-                  : "object-cover object-center"
+                "z-20 object-contain p-2 sm:p-5",
+                activeItem.fit === "contain" ? "p-2 sm:p-5" : "p-1 sm:p-3"
               )}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
+            <div className="absolute inset-0 z-30 bg-gradient-to-t from-black via-black/25 to-transparent" />
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-4 p-4 sm:p-5">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.18em] text-primary/90 sm:text-xs sm:tracking-[0.3em]">{activeItem.subtitle}</p>
-            <h3 className="mt-2 font-heading text-2xl leading-tight text-white sm:text-3xl">{activeItem.title}</h3>
+        <div className="absolute inset-x-0 bottom-0 z-40 flex items-end justify-between gap-4 p-3 sm:p-5">
+          <div className="min-w-0">
+            <p className="text-[10px] uppercase tracking-[0.12em] text-primary/90 sm:text-xs sm:tracking-[0.3em]">{activeItem.subtitle}</p>
+            <h3 className="mt-1 break-words font-heading text-xl leading-tight text-white sm:mt-2 sm:text-3xl">{activeItem.title}</h3>
           </div>
           <p className="hidden text-xs uppercase tracking-[0.3em] text-white/60 sm:block">
             Live Entertainment
@@ -72,11 +79,11 @@ export default function ShowCarousel({ items }) {
             type="button"
             onClick={() => setActiveIndex(index)}
             className={cn(
-              "min-w-[178px] shrink-0 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-3 text-left sm:min-w-0 sm:px-4",
+              "min-w-[150px] shrink-0 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left sm:min-w-0 sm:px-4 sm:py-3",
               activeIndex === index && "border-primary/40 bg-primary/10"
             )}
           >
-            <p className="text-[10px] uppercase tracking-[0.16em] text-primary/80 sm:text-[11px] sm:tracking-[0.25em]">{item.subtitle}</p>
+            <p className="text-[10px] uppercase tracking-[0.1em] text-primary/80 sm:text-[11px] sm:tracking-[0.25em]">{item.subtitle}</p>
             <p className="mt-1 text-sm text-foreground sm:mt-2">{item.title}</p>
           </button>
         ))}

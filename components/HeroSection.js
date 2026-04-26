@@ -54,13 +54,13 @@ export default function HeroSection({ heroVideoUrl, heroImageUrl, heroMobileImag
         >
           <Badge>{profileIdentity.brandName}</Badge>
           <div className="space-y-4">
-            <p className="text-[11px] uppercase leading-6 tracking-[0.18em] text-primary/90 sm:text-xs sm:tracking-[0.38em]">
+            <p className="text-[11px] uppercase leading-6 tracking-[0.1em] text-primary/90 sm:text-xs sm:tracking-[0.38em]">
               Celebrity / Events / Weddings / Live
             </p>
-            <p className="text-xs uppercase tracking-[0.18em] text-white/62 sm:text-sm sm:tracking-[0.28em]">
+            <p className="text-xs uppercase tracking-[0.1em] text-white/62 sm:text-sm sm:tracking-[0.28em]">
               Led by {profileIdentity.name}
             </p>
-            <h1 className="max-w-4xl font-heading text-4xl leading-[1.02] text-white sm:text-6xl sm:leading-[0.96] lg:text-7xl">
+            <h1 className="text-balance max-w-4xl break-words font-heading text-[2.55rem] leading-[1.02] text-white sm:text-6xl sm:leading-[0.96] lg:text-7xl">
               Events and stars, framed with a cinematic eye.
             </h1>
             <p className="max-w-2xl text-sm leading-7 text-white/80 sm:text-lg sm:leading-8">
@@ -70,10 +70,10 @@ export default function HeroSection({ heroVideoUrl, heroImageUrl, heroMobileImag
             </p>
           </div>
           <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
-            <Button asChild size="lg" className="w-full sm:w-auto">
+            <Button asChild size="lg" className="h-auto w-full whitespace-normal py-3 text-center leading-tight sm:w-auto sm:whitespace-nowrap">
               <Link href="/portfolio">View Selected Work</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="w-full border-white/20 bg-black/20 sm:w-auto">
+            <Button asChild variant="outline" size="lg" className="h-auto w-full whitespace-normal border-white/20 bg-black/20 py-3 text-center leading-tight sm:w-auto sm:whitespace-nowrap">
               <Link href="/contact">Start a Conversation</Link>
             </Button>
           </div>
