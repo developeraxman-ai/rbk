@@ -1,0 +1,7 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="72" fill="#080808"/>
+  <rect x="24" y="24" width="464" height="464" rx="56" stroke="#D4B36A" stroke-opacity="0.32" stroke-width="2"/>
+  <text x="256" y="300" text-anchor="middle" fill="#F5F2EA" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="700" letter-spacing="8">RBK</text>
+  <path d="M116 424H396" stroke="#D4B36A" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+  <text x="256" y="452" text-anchor="middle" fill="#D4B36A" font-family="Georgia, 'Times New Roman', serif" font-size="28" letter-spacing="8">EVENTS</text>
+</svg>
