@@ -174,13 +174,13 @@ export default async function AboutPage() {
             </div>
 
             <div className="grid gap-4 sm:grid-rows-2 lg:grid-cols-2 lg:grid-rows-none">
-              <div className="relative min-h-[220px] overflow-hidden rounded-lg border border-white/15 bg-black">
+              <div className="relative min-h-[280px] overflow-hidden rounded-lg border border-white/15 bg-black">
                 <EventMedia
                   src={siteMedia.aboutOnsetCamera}
                   alt={`${profileIdentity.name} on a camera setup`}
                   sizes="(max-width: 1024px) 100vw, 19vw"
                   className="absolute inset-0"
-                  mediaClassName="object-cover object-center grayscale"
+                  mediaClassName="object-contain object-center p-2 grayscale"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
               </div>

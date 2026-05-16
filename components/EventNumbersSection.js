@@ -5,14 +5,14 @@ import { Badge } from "@/components/ui/badge";
 
 const numbers = [
   {
-    value: "08",
-    label: "Core function formats",
-    detail: "Ceremony, reception, engagement, haldi, mehendi, sangeet, birthday parties, corporate events.",
+    value: "100+",
+    label: "Events organised",
+    detail: "Weddings, receptions, engagements, birthdays, private celebrations, and corporate functions handled end to end.",
   },
   {
-    value: "01",
-    label: "Gallery per event",
-    detail: "Every public event opens into its own photos and videos archive.",
+    value: "75+",
+    label: "Happy clients",
+    detail: "Families, hosts, and teams supported with planning, decor, guest flow, photography, and video.",
   },
   {
     value: "24/7",
@@ -20,9 +20,9 @@ const numbers = [
     detail: "Quick conversations for dates, decor, guest count, venue flow, and media needs.",
   },
   {
-    value: "55+",
-    label: "Visual titles background",
-    detail: "A visual craft language shaped by film-publicity, stage, and production experience.",
+    value: "18+",
+    label: "Years of visual craft",
+    detail: "Experience shaped by photography, stage, television, film publicity, and production work.",
   },
 ];
 
@@ -40,8 +40,8 @@ export default function EventNumbersSection() {
             Clear scale, careful planning, visible outcomes.
           </h2>
           <p className="max-w-xl text-sm leading-7 text-[#fffaf2]/72 sm:text-base sm:leading-8">
-            RBK Events is built around organised celebration formats, dedicated galleries, and
-            responsive planning from the first conversation.
+            RBK Events brings together proven event experience, client trust, and responsive
+            planning from the first conversation to the final gallery.
           </p>
         </ScrollReveal>
 
