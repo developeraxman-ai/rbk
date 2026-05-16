@@ -6,7 +6,7 @@ export const metadata = {
   title: "Admin Login",
 };
 
-export default function LoginPage({ searchParams }) {
+export default function LoginPage() {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-10">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,179,106,0.14),transparent_30%),linear-gradient(180deg,#080808_0%,#030303_100%)]" />
@@ -15,10 +15,10 @@ export default function LoginPage({ searchParams }) {
         <CardHeader>
           <p className="text-xs uppercase tracking-[0.35em] text-primary">{profileIdentity.brandName}</p>
           <CardTitle>Admin Login</CardTitle>
-          <CardDescription>Sign in to manage projects, uploads, and inquiries.</CardDescription>
+          <CardDescription>Sign in to manage functions, Cloudinary uploads, and inquiries.</CardDescription>
         </CardHeader>
         <CardContent>
-          <LoginForm redirectTo={searchParams?.redirect || "/dashboard"} />
+          <LoginForm redirectTo="/admin/events" />
         </CardContent>
       </Card>
     </div>

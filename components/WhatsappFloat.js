@@ -1,12 +1,9 @@
 import Link from "next/link";
 
-import { contactInfo, profileIdentity } from "@/lib/profile-content";
+import { getWhatsappHref } from "@/lib/whatsapp";
 
 export default function WhatsappFloat() {
-  const message = encodeURIComponent(
-    `Hi ${profileIdentity.brandName}, I would like to discuss an event.`
-  );
-  const href = `https://wa.me/${contactInfo.whatsapp}?text=${message}`;
+  const href = getWhatsappHref();
 
   return (
     <Link

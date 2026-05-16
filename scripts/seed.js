@@ -2,8 +2,10 @@ import process from "node:process";
 
 import bcrypt from "bcryptjs";
 import { connectToDatabase } from "../lib/db.js";
-import { demoProjects } from "../lib/demo-content.js";
+import { demoEvents, demoProjects } from "../lib/demo-content.js";
+import Event from "../models/Event.js";
 import Project from "../models/Project.js";
+import SiteSettings from "../models/SiteSettings.js";
 import User from "../models/User.js";
 
 process.loadEnvFile?.(".env.local");
@@ -42,6 +44,44 @@ async function seed() {
             media: project.media,
             clientName: project.clientName,
             featured: project.featured,
+          },
+        },
+        { upsert: true }
+      );
+    })
+  );
+
+  await SiteSettings.updateOne(
+    { key: "site" },
+    {
+      $setOnInsert: {
+        key: "site",
+        heroVideoUrl: process.env.NEXT_PUBLIC_HERO_VIDEO_URL || "",
+        heroPosterUrl: "",
+        heroEyebrow: "Celebration & Function Organisation",
+        heroTitle: "Elegant celebrations, designed with care.",
+        heroDescription:
+          "RBK Events plans ceremonies, receptions, engagements, haldi-mehendi functions, birthday parties, naming ceremonies, anniversaries, private celebrations, and corporate events with decor, coordination, and photo/video coverage.",
+      },
+    },
+    { upsert: true }
+  );
+
+  await Promise.all(
+    demoEvents.map(async (event) => {
+      await Event.updateOne(
+        { slug: event.slug },
+        {
+          $set: {
+            title: event.title,
+            slug: event.slug,
+            description: event.description,
+            date: event.date,
+            category: event.category,
+            coverMedia: event.coverMedia,
+            media: event.media,
+            featured: event.featured,
+            testimonials: event.testimonials || [],
           },
         },
         { upsert: true }

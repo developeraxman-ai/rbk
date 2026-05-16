@@ -76,7 +76,7 @@ export default function ContactForm() {
           id="message"
           value={form.message}
           onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
-          placeholder="Tell me about the shoot, event, mood, timeline, and audience."
+          placeholder="Tell us about the function, date, city, guest count, decor mood, and media needs."
           required
         />
       </div>

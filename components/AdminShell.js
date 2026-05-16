@@ -1,9 +1,10 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Film, LayoutDashboard, PlusCircle, SquareStack } from "lucide-react";
+import { CalendarPlus, LayoutDashboard, Settings, SquareStack } from "lucide-react";
 
 import LogoutButton from "@/components/LogoutButton";
 import { profileIdentity } from "@/lib/profile-content";
@@ -11,11 +12,12 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/projects", label: "Projects", icon: SquareStack },
-  { href: "/projects/new", label: "New Project", icon: PlusCircle },
+  { href: "/admin/events", label: "Functions", icon: SquareStack },
+  { href: "/admin/events/new", label: "New Function", icon: CalendarPlus },
+  { href: "/admin/settings", label: "Site Settings", icon: Settings },
 ];
 
-export default function AdminShell({ children }) {
+export default function AdminShell({ children, logoSrc = "/rbk/rbk-events-logo.svg" }) {
   const pathname = usePathname();
   const isLogin = pathname === "/login";
 
@@ -24,22 +26,20 @@ export default function AdminShell({ children }) {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <div className="mx-auto grid min-h-screen max-w-[1600px] lg:grid-cols-[280px_1fr]">
-        <aside className="border-r border-white/10 bg-black/70 px-6 py-8 backdrop-blur-xl">
+        <aside className="border-r border-border bg-[#fffaf2] px-6 py-8">
           <div className="flex items-center gap-3">
-            <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-primary/20 bg-black/40">
-              <Image
-                src="/rbk/rbk-events-logo.svg"
+            <div className="relative h-14 w-14 overflow-hidden rounded-lg border border-border bg-card">
+              <img
+                src={logoSrc}
                 alt={profileIdentity.brandName}
-                fill
-                sizes="56px"
-                className="object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
             <div>
               <p className="font-heading text-2xl text-foreground">{profileIdentity.brandName}</p>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Admin</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Function Admin</p>
             </div>
           </div>
 
@@ -53,8 +53,8 @@ export default function AdminShell({ children }) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-muted-foreground hover:bg-white/[0.04] hover:text-foreground",
-                    active && "bg-white/[0.06] text-foreground"
+                    "flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-muted-foreground hover:bg-muted hover:text-foreground",
+                    active && "bg-muted text-foreground"
                   )}
                 >
                   <Icon className="h-4 w-4" />
@@ -65,18 +65,18 @@ export default function AdminShell({ children }) {
           </nav>
 
           <div className="mt-12 rounded-xl border border-primary/20 bg-primary/8 p-5">
-            <p className="text-xs uppercase tracking-[0.32em] text-primary">Studio Note</p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Use Cloudinary for uploads and MongoDB Atlas for publishing live work.
-            </p>
+              <p className="text-xs uppercase tracking-[0.32em] text-primary">Studio Note</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+              Use Cloudinary for media uploads and MongoDB Atlas for publishing public functions.
+              </p>
           </div>
         </aside>
 
         <div className="flex min-h-screen flex-col">
-          <header className="flex items-center justify-between border-b border-white/10 px-5 py-5 sm:px-8">
+          <header className="flex items-center justify-between border-b border-border bg-[#fffaf2]/70 px-5 py-5 sm:px-8">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-primary">Control Room</p>
-              <h1 className="font-heading text-3xl text-foreground">Publishing Dashboard</h1>
+              <h1 className="font-heading text-3xl text-foreground">Function Dashboard</h1>
             </div>
             <div className="flex items-center gap-3">
               <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">

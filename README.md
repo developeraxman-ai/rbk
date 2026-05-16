@@ -1,6 +1,6 @@
 # RBK Events
 
-Premium cinematic portfolio and admin CMS for an event-led visual brand by Raghavendra B Kolar.
+Premium event-company website and admin CMS for marriages, receptions, engagements, birthday functions, family celebrations, decor coordination, Cloudinary galleries, and event media.
 
 ## Stack
 
@@ -15,15 +15,15 @@ Premium cinematic portfolio and admin CMS for an event-led visual brand by Ragha
 
 ## Features
 
-- Cinematic dark-mode portfolio with fullscreen video hero
-- Masonry portfolio grid with category filters
-- Dynamic project detail pages using slugs
-- Story-driven about page and inquiry form with WhatsApp CTA
-- Admin login, dashboard, projects table, create/edit/delete workflows
+- Premium dark-mode marriage and function organiser landing page with fullscreen video hero support
+- Dynamic events page with category filters, clickable image/video cards, and individual function gallery pages
+- About Us page focused on the company story, philosophy, and event approach
+- Inquiry form and preserved WhatsApp CTA flow
+- Admin login, dashboard, functions table, create/edit/delete workflows
 - Cloudinary upload API for multiple images/videos
-- MongoDB-backed projects and inquiries
+- MongoDB-backed events and inquiries
 - Middleware protection for admin pages and mutation routes
-- Demo content fallback for public/admin preview when MongoDB is not configured
+- Demo marriage/function fallback for public/admin preview when MongoDB is not configured
 
 ## Project Structure
 
@@ -66,7 +66,7 @@ middleware.js
    - `NEXT_PUBLIC_HERO_VIDEO_URL` (optional)
    - `NEXT_PUBLIC_WHATSAPP_NUMBER` (optional)
 
-4. Seed the initial admin and sample portfolio data:
+4. Seed the initial admin and sample event data:
 
    ```bash
    npm run seed
@@ -82,14 +82,16 @@ middleware.js
 
    - Public site: `http://localhost:3000`
    - Admin login: `http://localhost:3000/login`
+   - Events admin: `http://localhost:3000/admin/events`
 
 ## Auth Notes
 
 - Admin JWTs are stored in the `rbk_admin_token` HTTP-only cookie.
 - Middleware protects:
   - `/dashboard`
+  - `/admin/events`
   - `/projects`
-  - `POST/PUT/DELETE` project APIs
+  - `POST/PUT/DELETE` event and project APIs
   - `/api/upload`
 - If the user collection is empty, the login route can bootstrap the first admin from `ADMIN_EMAIL` and `ADMIN_PASSWORD`.
 
@@ -97,6 +99,11 @@ middleware.js
 
 - `POST /api/auth/login`
 - `POST /api/auth/logout`
+- `GET /api/events`
+- `POST /api/events`
+- `GET /api/events/[id]`
+- `PUT /api/events/[id]`
+- `DELETE /api/events/[id]`
 - `GET /api/projects`
 - `POST /api/projects`
 - `GET /api/projects/[id]`
@@ -109,8 +116,8 @@ middleware.js
 
 - Admin form sends `multipart/form-data` to `/api/upload`
 - Route handler uploads buffers to Cloudinary
-- Route returns secure URLs
-- Project records store those URLs in MongoDB
+- Route returns secure Cloudinary URLs
+- Event records store those URLs in MongoDB, and `/events/[slug]` renders the media for that individual function
 
 ## Deployment on Vercel
 

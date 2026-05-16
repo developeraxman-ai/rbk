@@ -3,7 +3,11 @@ import { NextResponse } from "next/server";
 import { verifyEdgeJwtToken } from "@/lib/auth-edge";
 
 function isProtectedPath(pathname) {
-  return pathname.startsWith("/dashboard") || pathname.startsWith("/projects");
+  return (
+    pathname.startsWith("/dashboard") ||
+    pathname.startsWith("/projects") ||
+    pathname.startsWith("/admin")
+  );
 }
 
 function isProtectedApi(pathname, method) {
@@ -12,6 +16,14 @@ function isProtectedApi(pathname, method) {
   }
 
   if (pathname.startsWith("/api/projects")) {
+    return method !== "GET";
+  }
+
+  if (pathname.startsWith("/api/events")) {
+    return method !== "GET";
+  }
+
+  if (pathname.startsWith("/api/settings")) {
     return method !== "GET";
   }
 
@@ -45,5 +57,13 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/projects/:path*", "/api/projects/:path*", "/api/upload/:path*"],
+  matcher: [
+    "/dashboard/:path*",
+    "/projects/:path*",
+    "/admin/:path*",
+    "/api/projects/:path*",
+    "/api/events/:path*",
+    "/api/settings/:path*",
+    "/api/upload/:path*",
+  ],
 };

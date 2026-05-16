@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export default function LoginForm({ redirectTo = "/dashboard" }) {
+export default function LoginForm({ redirectTo = "/admin/events" }) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,7 +52,7 @@ export default function LoginForm({ redirectTo = "/dashboard" }) {
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="admin@rbkvisuals.com"
+          placeholder="admin@rbkevents.com"
           required
         />
       </div>

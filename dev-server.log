@@ -4,7 +4,17 @@
 
    ▲ Next.js 15.5.9
    - Local:        http://localhost:3000
-   - Network:      http://192.168.31.184:3000
+   - Network:      http://172.20.10.3:3000
+   - Environments: .env
 
  ✓ Starting...
- ✓ Ready in 4s
+ ✓ Ready in 3.1s
+ ○ Compiling /events/[slug] ...
+ ✓ Compiled /events/[slug] in 6s (1748 modules)
+ GET / 200 in 9606ms
+ GET /events/royal-ceremony 200 in 9642ms
+ ○ Compiling /api/settings ...
+ ✓ Compiled /api/settings in 931ms (1708 modules)
+ GET /api/settings 200 in 4718ms
+   Reload env: .env
+ ✓ Compiled in 349.8s (822 modules)

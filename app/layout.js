@@ -19,8 +19,45 @@ export const metadata = {
     template: "%s | RBK Events",
   },
   description:
-    "RBK Events is a premium event-led visual brand by Raghavendra B Kolar, bringing cinematic atmosphere to live experiences, weddings, celebrity appearances, and brand moments.",
+    "RBK Events is a premium event company organising ceremonies, receptions, engagements, birthday functions, private celebrations, select corporate functions, decor, and event media.",
+  keywords: [
+    "RBK Events",
+    "event organiser Bengaluru",
+    "function organiser Bangalore",
+    "Indian celebration planner",
+    "reception event planner",
+    "engagement event planner",
+    "haldi mehendi event planner",
+    "birthday party planner Bengaluru",
+    "corporate event organiser Bengaluru",
+    "event decor Bengaluru",
+  ],
   metadataBase: new URL("https://rbk-events.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "/",
+    siteName: "RBK Events",
+    title: "RBK Events",
+    description:
+      "Premium celebration, birthday party, and corporate event organisation with decor, stage, guest flow, photo, and video coverage.",
+    images: [
+      {
+        url: "/rbk/rbk-events-logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "RBK Events",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RBK Events",
+    description: "Premium celebration, birthday party, and corporate event organisation.",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
